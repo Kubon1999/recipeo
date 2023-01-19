@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.recipes-containers {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  
+    .recipes-list {
+      width: 29%;
+    }
+  
+    .recipes-details {
+      width: 69%;
+    }
+  }
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+mat-card {
+  box-shadow: 10px 10px 0px -1px rgba(0, 0, 0, 1);
+
+  mat-form-field {
+    width: 100%;
+  }
+}

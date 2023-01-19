@@ -1,0 +1,23 @@
+<mat-card>
+        <mat-card-header>
+            <mat-card-title>
+            Recipe List
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list>
+            <mat-list-item *ngFor="let recipe of recipes">
+                <h3 matLine>{{recipe.name | titlecase }}</h3>
+                <p matLine>{{recipe.description}}</p>
+                <button mat-icon-button color="primary"  (click)="$event.stopImmediatePropagation()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="$event.stopImmediatePropagation()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-list-item>
+            </mat-list>
+            
+        </mat-card-content>
+</mat-card>
+    
