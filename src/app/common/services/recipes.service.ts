@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe';
 
- //const BASE_URL = 'https://crudcrud.com/api/4fcefb089e66498d9ca1e99f5344e10c/';
+ const BASE_URL = 'https://crudcrud.com/api/4fcefb089e66498d9ca1e99f5344e10c/';
 
- const BASE_URL = 'http://localhost:3000/';
+ //const BASE_URL = 'http://localhost:3000/';
 
 @Injectable({
   providedIn: 'root'
