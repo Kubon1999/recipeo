@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Recipe } from 'src/app/common/models/recipe';
 
 @Component({
   selector: 'app-recipes-list',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent {
-  recipes = [];
-
+  @Input() recipes: Recipe[] = [];
+  @Output() selected = new EventEmitter();
+  @Output() deleted = new EventEmitter();
 }

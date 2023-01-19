@@ -2,14 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe';
 
-const BASE_URL = 'http://localhost:3000/';
+ //const BASE_URL = 'https://crudcrud.com/api/4fcefb089e66498d9ca1e99f5344e10c/';
+
+ const BASE_URL = 'http://localhost:3000/';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RecipesService {
 
-  model =  'recipes';
+  model =  'recipe';
 
   constructor(private http: HttpClient) { 
 
@@ -23,12 +26,13 @@ export class RecipesService {
     return this.http.get(this.getUrlWithId(_id));
   }
 
-  create(Recipe: Recipe){
-    return this.http.post(this.getUrl(), Recipe);
+  create(recipe: Recipe){
+    return this.http.post(this.getUrl(), recipe);
   }
 
-  update(Recipe: Recipe){
-    return this.http.patch(this.getUrlWithId(Recipe._id), Recipe);
+  update(recipe: Recipe){
+    const { _id, ...restObject } = recipe;
+    return this.http.put(this.getUrlWithId(recipe._id), restObject);
   }
 
   delete(_id: string){
