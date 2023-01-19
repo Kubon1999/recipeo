@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent {
-  recipes = [
-    {
-      name: 'Recipe 1',
-      description: 'Description 1',
-    }
-  ];
+  recipes = [];
 
 }
