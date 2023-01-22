@@ -1,0 +1,58 @@
+<mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <span *ngIf="currentRecipe.id !== -1; else elseBlock">
+                    Edit: {{originalName | titlecase }}
+                </span>
+                <ng-template #elseBlock>
+                    Select Recipe
+                </ng-template>
+            </mat-card-title>
+        </mat-card-header>
+        <span *ngIf="currentRecipe.id !== -1;">
+        <form #form="ngForm" (submit)="save.emit(currentRecipe)">
+            <mat-card-content class="recipe-details-edit">
+            
+            <mat-form-field class="full-width"> 
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" [(ngModel)]="currentRecipe.name" name="name" required type="text"/>   
+            </mat-form-field>
+
+
+
+            <div>
+                <label>Preparation time in minutes: </label>
+                <span>{{currentRecipe.preparationTimeInMinutes}}</span>
+            </div>
+            <mat-slider min="0" max="60" step="1" value="5">
+                <input matSliderThumb [(ngModel)]="currentRecipe.preparationTimeInMinutes" name="preparationTimeInMinutes">
+
+            </mat-slider>
+
+
+            <mat-form-field class="full-width"> 
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description..." [(ngModel)]="currentRecipe.description" name="description" type="text">   
+                </textarea>
+            </mat-form-field>
+
+            <mat-list>
+                    <mat-list-item *ngFor="let ingredient of currentRecipe.ingredients">
+                        <form #form="ngForm" (submit)="save.emit(currentRecipe)">
+                        <mat-form-field> 
+                            <mat-label>{{ingredient.name }}</mat-label>
+                            <input matInput placeholder="0" [(ngModel)]="ingredient.quantity" name="quantity" type="number"/>   
+                        </mat-form-field>
+                        </form>
+                    </mat-list-item>
+            </mat-list>
+
+            </mat-card-content>
+            <mat-card-actions>
+            <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Save</button>
+    
+            </mat-card-actions>
+        </form>
+         </span>
+        <hr>
+</mat-card>

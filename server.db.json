@@ -1,40 +1,58 @@
 {
   "recipe": [
     {
-      "_id": "63c937b7d1a82b03e8b2965d",
-      "name": "Pizza",
-      "preparationTimeInMinutes": 30,
-      "description": "Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients (anchovies, olives, meat, etc.) baked at a high temperature, traditionally in a wood-fired oven. A small pizza is sometimes called a pizzetta.",
-      "ingredients": [
-        {
-          "_id": "0",
-          "name": "Dough",
-          "quantity": "1"
-        },
-        {
-          "_id": "1",
-          "name": "Tomato sauce",
-          "quantity": "4"
-        }
-      ]
-    },
-    {
-      "_id": "63c93821d1a82b03e8b2965e",
-      "name": "Spaghetti",
-      "preparationTimeInMinutes": 20,
+      "name": "Spaghetti2",
+      "preparationTimeInMinutes": 39,
       "description": "Spaghetti is a long, thin, solid, cylindrical pasta. It is a staple food of traditional Italian cuisine. Like other pasta, spaghetti is made of milled wheat and water and sometimes enriched with vitamins and minerals. Spaghetti is a staple food of traditional Italian cuisine. Like other pasta, spaghetti is made of milled wheat and water and sometimes enriched with vitamins and minerals.",
       "ingredients": [
         {
-          "_id": "0",
-          "name": "Pasta",
-          "quantity": "2"
+          "id": 0,
+          "name": "Meat",
+          "quantity": 23
         },
         {
-          "_id": "1",
-          "name": "Meat",
-          "quantity": "500"
+          "id": 1,
+          "name": "Tomato",
+          "quantity": 23
         }
-      ]
+      ],
+      "id": 0
+    },
+    {
+      "name": "Pizza",
+      "preparationTimeInMinutes": 25,
+      "description": "Pizza is a savory dish of Italian origin consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients (anchovies, olives, meat, etc.) baked at a high temperature, traditionally in a wood-fired oven. A small pizza is sometimes called a pizzetta.",
+      "ingredients": [
+        {
+          "id": 0,
+          "name": "dough",
+          "quantity": 120
+        },
+        {
+          "id": 1,
+          "name": "Tomato souce",
+          "quantity": 21
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Pasta",
+      "preparationTimeInMinutes": 39,
+      "description": "Pasta is a staple food of traditional Italian cuisine, with the first reference dating to 1154 in Sicily. It can be made with a variety of flours, but typically semolina, durum wheat, or eggs are used. It is typically cut into short lengths and traditionally hand-formed, or extruded. Pasta is a staple food of traditional Italian cuisine, with the first reference dating to 1154 in Sicily. It can be made with a variety of flours, but typically semolina, durum wheat, or eggs are used. It is typically cut into short lengths and traditionally hand-formed, or extruded.",
+      "ingredients": [
+        {
+          "id": 0,
+          "name": "pasta",
+          "quantity": 15
+        },
+        {
+          "id": 1,
+          "name": "Tomato souce",
+          "quantity": 20
+        }
+      ],
+      "id": 2
     }
   ]
 }

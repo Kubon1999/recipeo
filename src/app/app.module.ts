@@ -12,6 +12,9 @@ import { RecipesListComponent } from './recipes/recipes-list/recipes-list.compon
 import { RecipesDetailsComponent } from './recipes/recipes-details/recipes-details.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RecipesDetailsEditComponent } from './recipes/recipes-details/recipes-details-edit/recipes-details-edit.component';
+import { RecipesDetailsPreviewComponent } from './recipes/recipes-details/recipes-details-preview/recipes-details-preview.component';
+import { RecipesDetailsNewComponent } from './recipes/recipes-details/recipes-details-new/recipes-details-new.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarDialogComponent,
     RecipesComponent,
     RecipesListComponent,
-    RecipesDetailsComponent
+    RecipesDetailsComponent,
+    RecipesDetailsEditComponent,
+    RecipesDetailsPreviewComponent,
+    RecipesDetailsNewComponent
   ],
   imports: [
     BrowserModule,

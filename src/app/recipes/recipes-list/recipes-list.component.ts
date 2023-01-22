@@ -9,5 +9,7 @@ import { Recipe } from 'src/app/common/models/recipe';
 export class RecipesListComponent {
   @Input() recipes: Recipe[] = [];
   @Output() selected = new EventEmitter();
+  @Output() new = new EventEmitter();
+  @Output() edited = new EventEmitter();
   @Output() deleted = new EventEmitter();
 }

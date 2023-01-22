@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <span *ngIf="recipe.id !== -1; else elseBlock">
+                {{recipe.name | titlecase }}
+            </span>
+            <ng-template #elseBlock>
+                Select Recipe
+            </ng-template>
+        </mat-card-title>
+    </mat-card-header>
+    <span *ngIf="recipe.id !== -1;">
+        <mat-card-content class="recipe-details-preview">
+            <i> Preparation time(minutes): {{recipe.preparationTimeInMinutes}}</i>
+            <hr>
+            <p> {{recipe.description}}</p>
+    
+            <h4>Ingredients</h4>
+            <mat-list>
+                <mat-list-item *ngFor="let ingredient of recipe.ingredients">
+                    <mat-icon color="primary">check</mat-icon>
+                    <span>{{ingredient.name }}: </span>
+                    <span class="recipes-details-preview-quantity">{{ingredient.quantity }}</span>
+                </mat-list-item>
+            </mat-list>
+
+        </mat-card-content>
+     </span>
+</mat-card>

@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            New Recipe
+        </mat-card-title>
+    </mat-card-header>
+    <form #form="ngForm" (submit)="newRecipe.emit(recipe)">
+        <mat-card-content class="recipe-details-edit">
+        
+        <mat-form-field class="full-width"> 
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" [(ngModel)]="recipe.name" name="name" required type="text"/>   
+        </mat-form-field>
+
+
+
+        <div>
+            <label>Preparation time in minutes: </label>
+            <span>{{recipe.preparationTimeInMinutes}}</span>
+        </div>
+        <mat-slider min="0" max="60" step="1" value="5">
+            <input matSliderThumb [(ngModel)]="recipe.preparationTimeInMinutes" name="preparationTimeInMinutes">
+
+        </mat-slider>
+
+
+        <mat-form-field class="full-width"> 
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Description..." [(ngModel)]="recipe.description" name="description" type="text">   
+            </textarea>
+        </mat-form-field>
+
+
+        </mat-card-content>
+        <mat-card-actions>
+        <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Create</button>
+
+        </mat-card-actions>
+    </form>
+    <hr>
+</mat-card>

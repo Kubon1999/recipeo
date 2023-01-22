@@ -10,19 +10,38 @@ import { Recipe } from 'src/app/common/models/recipe';
 
 export class RecipesDetailsComponent {
   currentRecipe: Recipe = {
-    _id: '',
+    id: -1,
     name: '',
     preparationTimeInMinutes: 0,
     description: '',
     ingredients: [],
   };
   originalName = '';
+  recipeDetailsState = 'preview'; // preview | edit | new
   @Output() save = new EventEmitter();
+  @Output() create = new EventEmitter();
+  @Input() set setRecipeDetailsState(state: string) {
+    this.recipeDetailsState = state;
+  }
   @Input() set recipe(value : Recipe){
     if(!value){
       return
-    }
-    this.currentRecipe = {...value};
+    }    
+    this.currentRecipe = {
+      id: value.id,
+      name: value.name,
+      preparationTimeInMinutes: value.preparationTimeInMinutes,
+      description: value.description,
+      ingredients: value.ingredients,
+    };
     this.originalName = this.currentRecipe.name;
+  }
+
+  saveRecipe(recipe: Recipe) {
+    this.save.emit(recipe);
+  }
+
+  createRecipe(recipe: Recipe) {
+    this.create.emit(recipe);
   }
 }

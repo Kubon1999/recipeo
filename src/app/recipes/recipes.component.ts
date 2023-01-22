@@ -5,7 +5,7 @@ import { ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 
 
 const emptyRecipe: Recipe = {
-  _id: '',
+  id: -1,
   name: '',
   preparationTimeInMinutes: 0,
   description: '',
@@ -23,6 +23,7 @@ export class RecipesComponent {
   recipes = [];
 
   selectedRecipe = emptyRecipe;
+  recipeDetailsState = 'preview'; // preview | edit | new
 
   constructor(private recipesService: RecipesService, private ref: ChangeDetectorRef) {
   }
@@ -32,16 +33,24 @@ export class RecipesComponent {
   }
 
   selectRecipe(recipe: Recipe) {
+    this.recipeDetailsState = 'preview';
     this.selectedRecipe = recipe;
+    console.log("Selected recipe: ", recipe);
+  }
+
+  newRecipe() {
+    this.recipeDetailsState = 'new';
+    console.log("New recipe");
+  }
+
+  editRecipe(recipe: Recipe) {
+    this.selectedRecipe = recipe;
+    this.recipeDetailsState = 'edit';
+    console.log("Editing recipe: ", recipe);
   }
 
   saveRecipe(recipe : any) {
-    console.log(recipe);
-    if(recipe._id){
-      this.updateRecipe(recipe);
-    }else{
-      this.createRecipe(recipe);
-    }
+    this.updateRecipe(recipe);
     console.log("Saving recipe: ", recipe);
   }
 
@@ -49,6 +58,10 @@ export class RecipesComponent {
       this.recipesService.all().subscribe((result : any) => {
         console.log("Recipes: ", result)
         this.recipes = result;
+        if(this.recipes.length != 0){
+          this.selectRecipe(this.recipes[0]);
+          this.recipeDetailsState = 'preview';
+        }
         this.ref.detectChanges();
     })
   }
@@ -66,12 +79,10 @@ export class RecipesComponent {
   }
 
   deleteRecipe(recipe: Recipe){
-    console.log(recipe)
-    let recipeId = recipe._id;
-    this.recipesService.delete(recipeId).subscribe(result => {
+    this.recipesService.delete(recipe.id).subscribe(result => {
       this.fetchRecipes();
     })
-    console.log("Deleting recipe: " + recipeId);
+    console.log("Deleting recipe: " + recipe.id);
   }
 
   reset(){

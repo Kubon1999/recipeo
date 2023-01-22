@@ -5,14 +5,19 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <mat-list>
-            <mat-list-item *ngFor="let recipe of recipes" (click)="selected.emit(recipe)">
-                <span>{{recipe.name }}</span>
-                <button mat-icon-button color="warn" (click)="deleted.emit(recipe); $event.stopImmediatePropagation()">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </mat-list-item>
-            </mat-list>
+            <mat-nav-list>
+                <hr>
+                <button mat-raised-button color="primary" (click)="new.emit()">New Recipe</button>
+                <a mat-list-item *ngFor="let recipe of recipes" (click)="selected.emit(recipe)">
+                    <span>{{recipe.name}}</span>
+                    <button class="recipes-list-icon-button-edit" mat-icon-button color="accent" (click)="edited.emit(recipe); $event.stopImmediatePropagation()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="recipes-list-icon-button-delete" mat-icon-button color="warn" (click)="deleted.emit(recipe); $event.stopImmediatePropagation()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </a>
+            </mat-nav-list>
             
         </mat-card-content>
 </mat-card>

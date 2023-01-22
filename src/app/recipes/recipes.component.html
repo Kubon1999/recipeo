@@ -3,7 +3,9 @@
 <div class="recipes-list">
     <app-recipes-list 
     [recipes]="recipes"
-    (selected)="selectRecipe($event)" 
+    (edited)="editRecipe($event)"
+    (selected)="selectRecipe($event)"
+    (new)="newRecipe()"
     (deleted)="deleteRecipe($event)"
     >
     </app-recipes-list>
@@ -11,7 +13,9 @@
 <div class="recipes-details">
     <app-recipes-details
     [recipe] = "selectedRecipe"
+    [setRecipeDetailsState] = "recipeDetailsState"
     (save)="saveRecipe($event)"
+    (create)="createRecipe($event)"
     ></app-recipes-details>
 </div>
 
